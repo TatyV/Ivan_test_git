@@ -1,0 +1,260 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    /* чтобы на всю высоту было */
+    min-height: 100%;
+    
+    /* чтобы ничего не вылазило */
+    overflow: hidden;
+    /* чтобы футер прижать вниз, из wrapper делаем flex контэйнейр */
+    display: flex;
+    flex-direction: column;
+   
+    /* border: 1px solid red; */
+    
+}
+.content {
+    /* надо разрешить content увеличиваться чтобы он прижал footer вниз */
+    flex: 1 1 auto;
+    border: 1px solid blue;
+    background-image:url('небо.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+    
+
+img {
+    width: 25%;
+    height: 25%;
+}
+.container {
+    max-width: 1150px;
+    /* выровнять блочный элемент по центру */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid yellow;
+    /* выравнять по горизонтали */
+    justify-content: center;
+    align-items: center;
+}
+.hi_title {
+    display: flex;
+    flex-direction: column;
+   
+    /* выравнять по горизонтали */
+    justify-content: center;
+    align-items: center;
+}
+
+    
+    
+.hi_column {
+    display: flex;
+    flex-direction: column;
+    
+}
+.hi_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 300px;
+    /* font-size: 24px; */
+    
+}
+@media screen and (max-width: 750px) {
+    .hi_list {
+        margin-bottom: 150px;
+    }
+    
+}
+@media screen and (max-width: 550px) {
+    .hi_list {
+        margin-bottom: 80px;
+    }
+    
+}
+.menu li {
+    font-size: 1em;
+    
+}
+.hi_list:focus-within > .menu,
+.hi_list:hover > .menu{
+    /* display: flex; */
+    flex-direction: column;
+    /* обнулим свойства по умолчанию */
+    padding-left: 0;
+    list-style: none;
+    /* чтобы высота текст ниже меню не скакала в зависимости от меню  */
+    /* чтобы после правильного скрытия работало при наведении */
+    clip:auto;
+    width: auto;
+    height:auto;
+    margin:0;
+    padding-top: 80px
+    
+}
+.hi_list span {
+    font-weight: bold;
+    font-size: 4em;
+    text-shadow: 4px 2px rgb(99, 89, 89);
+    text-align: center;
+}
+
+@media screen and (max-width: 672px) {
+    .hi_list span {
+        font-size: 2em;
+    } 
+    
+}
+h1 {
+    font-style: italic;
+    text-align: center;
+}
+@media screen and (max-width: 563px) {
+    h1 {
+        font-size: 1em;
+
+    }
+   
+    
+}
+.menu {
+    /* display: none; */
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    
+    position:absolute;
+   
+}
+.submenu {
+    /* display:none; */
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    position: absolute;
+    
+}
+li {
+    /* связываеь пункт меню с подменю, чтобы подменю было связано с пунктом родителя */
+    position: relative;
+}
+li:hover > .submenu {
+    /* display: flex; */
+    clip: auto;
+    width: auto;
+    height: auto;
+    position:absolute;
+    padding-left: 0;
+    list-style: none;
+    flex-direction: row;
+    /* чтобы внезависимости от ширины пункта подменю ысегда было рядом не стоит задавать в пикселях а задать 100% */
+    left:100%;
+    top:0px
+    
+}
+
+/* .menu .submenu {
+    top:0;
+} */
+/* визуализируем ссылки в меню */
+a {
+    display: block;
+    color: red;
+    /* убирает подчеркивание ссылки */
+    text-decoration: none; 
+    background-color: #ccc;
+    /* внутренние отступы ссылки чтобы увеличить область клика */
+    padding: 1em;
+    /* чтобы название меню ссылки не состояло из 2х строк, а ширина у всех пунктов была одинакова, запретить перенос слов
+    Свойство white-space устанавливает как переносить текст на новую строку, а также как отображать пробелы между словами и переносы строк (места, где был нажат Enter при наборе кода).
+Синтаксис. селектор {white-space: nowrap| pre | pre-line| pre-wrap| normal;} Значения. Значение Описание nowrap. Запрещает тексту переносится на другую строку, даже если он не помещается в ширину контейнера (в этом случае текст просто вылезет за его границы). */
+    white-space: nowrap;
+}
+
+/* При нажатии на ссылку в menu подсветить  */
+
+a:hover {
+    color: blue;
+}
+a:focus {
+    /* В отличие от border, рамка outline не участвует в блочной модели CSS. Она не занимает места и не меняет размер элемента. Поэтому его используют, когда хотят добавить рамку без изменения других CSS-параметров. Также, в отличие от border , рамку outline можно задать только со всех сторон: свойств outline-top , outline-left не существует*/
+    outline: none;
+    background-color: yellow;
+}
+.menu {
+}
+.bod {
+    /* clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px; */
+       
+}
+
+.container_body {
+    max-width: 1150px;
+    /* выровнять блочный элемент по центру */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    /* clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px; */
+    /* border: 12px solid yellowgreen; */
+    
+    /* justify-content: center; */
+    /* align-items: center; */
+   
+    
+}
+
+.today {
+    /* border: 1px solid red; */
+
+   
+}
+.data {
+    border: 1px solid red;
+    padding: 15px;
+}
+.data span {
+    font-weight: bold;
+    
+}
+.data div {
+    margin-top: 10px;
+}
+.tommorow {
+    /* border: 1px solid red; */
+
+}
+.tommorow2 {
+    /* border: 1px solid red; */
+}
+.day4 {
+    /* border: 1px solid red; */
+}
+.day5 {
+    /* border: 1px solid red; */
+}
+
+footer {
+    background-image: linear-gradient(orange, red);
+    display: flex;
+    /* выравнять по горизонтали */
+    justify-content: ctnter;
+    /* выравнять по вертикали */
+    align-items: center;
+}
